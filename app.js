@@ -13,7 +13,6 @@ document.querySelector("#duration-input").addEventListener("keypress", event => 
 });
 
 
-
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
@@ -82,7 +81,6 @@ const selectItem = (event, img) => {
     element.classList.remove('added');
   }
 
-
   let item = sliders.indexOf(img);
 
   if (item === -1) {
@@ -90,16 +88,13 @@ const selectItem = (event, img) => {
   } else if (item !== -1) {
     sliders.pop(img);
   }
-
 }
 
 // Function check duration
 const checkDuration = () => {
   let duration = document.getElementById('duration-input').value;
 
-  // Add a condition to make sure duration is > 0 || Not Negative 
-  // const duration = document.getElementById('duration-input').value;
-
+  // Add a condition to make sure duration is Not Negative 
   if (duration < 0) {
     alert('Duration cannot be negative');
     return;
@@ -148,10 +143,12 @@ const createSlider = (duration) => {
   }, duration);
 }
 
+
 // change slider index 
 const changeItem = index => {
   changeSlide(slideIndex += index);
 }
+
 
 // change slide item
 const changeSlide = (index) => {
@@ -175,42 +172,15 @@ const changeSlide = (index) => {
 }
 
 
-// function to accept only text input
-const checkInput = (input) => {
-  let letters = /^[A-Za-z ]+$/;
-  if (input.match(letters)) {
-    return true;
-  }
-  else {
-    // errorMessage();
-    return true;
-  }
-}
-
 //Function Toggle Spinner
-const toggleSpinner = (show) =>{
+const toggleSpinner = (show) => {
   const spinner = document.getElementById('loading-spinner');
-  if(show){
+  if (show) {
     spinner.classList.remove('d-none');
-  } else{
+  } else {
     spinner.classList.add('d-none');
   }
-    
-}
-
-
-//Error message for invalid imput
-const errorMessage = () => {
-  document.getElementById("errorMessage").innerHTML = "<p>Please use<span style='font-weight:bold'; class ='text-highlight'> only texts</span> to find image/s in the search box. Numbers or symbols are not allowed.</p>"
-  // document.getElementById('dialog').classList.remove('d-none');
-  // dialog.showModal();
-  // $('#dialog').modal(options)
-  // dialogInstance.showModal()
-  // $('#myModal').modal('toggle');
 
 }
 
-// //function to clean  the search bar
-// const cleanBar = () => {
-//   document.getElementById("search-input").value = "";
-// }
+
