@@ -100,13 +100,12 @@ const checkDuration = () => {
 
   if (duration < 0) {
     alert('Duration cannot be negative');
-    duration = 1000;
+    return;
 
   } else if (duration == "") {
     duration = 1000;
   }
   createSlider(duration);
-  
 }
 
 
