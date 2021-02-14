@@ -38,6 +38,7 @@ const searchString = () => {
 
 //Function getImages
 const getImages = (query) => {
+  toggleSpinner(true);
   fetch(`https://pixabay.com/api/?key=${KEY}&q=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => {
@@ -66,6 +67,7 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail " onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
   })
+  toggleSpinner(false);
 }
 
 
@@ -184,6 +186,18 @@ const checkInput = (input) => {
     return true;
   }
 }
+
+//Function Toggle Spinner
+const toggleSpinner = (show) =>{
+  const spinner = document.getElementById('loading-spinner');
+  if(show){
+    spinner.classList.remove('d-none');
+  } else{
+    spinner.classList.add('d-none');
+  }
+    
+}
+
 
 //Error message for invalid imput
 const errorMessage = () => {
