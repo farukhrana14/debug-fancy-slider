@@ -88,12 +88,31 @@ const selectItem = (event, img) => {
   } else if (item !== -1) {
     sliders.pop(img);
   }
+
+}
+
+// Function check duration
+const checkDuration = () => {
+  let duration = document.getElementById('duration-input').value;
+
+  // Add a condition to make sure duration is > 0 || Not Negative 
+  // const duration = document.getElementById('duration-input').value;
+
+  if (duration < 0) {
+    alert('Duration cannot be negative');
+    duration = 1000;
+
+  } else if (duration == "") {
+    duration = 1000;
+  }
+  createSlider(duration);
   
 }
 
+
 //Function CreateSlider
 var timer
-const createSlider = () => {
+const createSlider = (duration) => {
   // check slider image length
   if (sliders.length < 2) {
     alert('Select at least 2 image.')
@@ -112,20 +131,6 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration-input').value || 1000;
-
-  // Add a condition to make sure duration is > 0 || Not Negative 
-  // const duration = document.getElementById('duration-input').value;
-
-  if (duration < 0) {
-    alert('Duration cannot be negative');
-    duration = 1000;
-
-  } else if (duration == "") {
-    duration = 1000;
-  }
-
-
 
   sliders.forEach(slide => {
     let item = document.createElement('div')
