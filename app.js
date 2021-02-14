@@ -48,7 +48,7 @@ const getImages = (query) => {
           .catch(err => console.log(err))
       } else {
         location.reload();
-        alert('Hey, No image found, please search again');
+        alert('Hey, No image found, please search again.');
       }
     })
 }
@@ -96,7 +96,7 @@ const checkDuration = () => {
 
   // Add a condition to make sure duration is Not Negative 
   if (duration < 0) {
-    alert('Duration cannot be negative');
+    alert('Please Enter a Positive Duration.');
     return;
 
   } else if (duration == "") {
@@ -111,7 +111,7 @@ var timer
 const createSlider = (duration) => {
   // check slider image length
   if (sliders.length < 2) {
-    alert('Select at least 2 image.')
+    alert('Select at least 2 images.')
     return;
   }
   // crate slider previous next area
